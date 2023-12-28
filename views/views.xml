@@ -1,0 +1,28 @@
+<odoo>
+     <record  id="contacts_patient_info" model="ir.ui.view">
+         <field name="name">contacts.patient.info</field>
+         <field name="model">res.partner</field>
+         <field name="inherit_id" ref="base.view_partner_form"/>
+         <field name="arch" type="xml">
+             <xpath expr="//field[@name='vat']" position="before" >
+                 <field name="is_patient" />
+             </xpath>
+         </field>
+     </record>
+
+    <record id="my_hospital.action_patients" model="ir.actions.act_window">
+        <field name="name">Patients</field>
+        <field name="res_model">res.partner</field>
+        <field name="view_mode">tree,form,kanban</field>
+        <field name="domain">[('is_patient', '=', True)]</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Add new patient..
+            </p>
+        </field>
+    </record>
+
+    <menuitem id="hospital_patient" name="Patient" parent="hospital_root"
+              sequence="0" action="my_hospital.action_patients"/>
+    <menuitem id="hospital_root" name="Hospital" sequence="1" />
+</odoo>
