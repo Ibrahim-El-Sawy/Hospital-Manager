@@ -7,6 +7,14 @@
              <xpath expr="//field[@name='vat']" position="before" >
                  <field name="is_patient" />
              </xpath>
+
+             <xpath expr="//field[@name='is_patient']" position="after" >
+                 <field name="birthdate" />
+             </xpath>
+
+             <xpath expr="//field[@name='birthdate']" position="after" >
+                 <field name="age" />
+             </xpath>
          </field>
      </record>
 
@@ -21,8 +29,4 @@
             </p>
         </field>
     </record>
-
-    <menuitem id="hospital_patient" name="Patient" parent="hospital_root"
-              sequence="0" action="my_hospital.action_patients"/>
-    <menuitem id="hospital_root" name="Hospital" sequence="1" />
 </odoo>

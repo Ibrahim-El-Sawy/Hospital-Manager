@@ -31,11 +31,8 @@
         <field name="domain">[('is_doctor', '=', True)]</field>
         <field name="help" type="html">
             <p class="o_view_nocontent_smiling_face">
-                Add new patient..
+                Add new doctor..
             </p>
         </field>
    </record>
-
-   <menuitem id="hospital_doctors" name="Doctors" parent="hospital_root"
-             sequence="1" action="my_hospital.action_doctors"/>
 </odoo>
