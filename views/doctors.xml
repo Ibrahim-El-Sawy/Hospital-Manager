@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <odoo>
-   <record id="view_users_form_inherit" model="ir.ui.view">
+    <record id="view_users_form_inherit" model="ir.ui.view">
         <field name="name">res.users.form.inherit</field>
         <field name="model">res.users</field>
         <field name="inherit_id" ref="base.view_users_form"/>
@@ -8,10 +8,11 @@
             <xpath expr="//page[@name='access_rights']" position="inside" >
                 <group name="my_hospital_group" string="Doctors Settings">
                     <field name="is_doctor" />
+                    <field name="is_supervisor" />
                 </group>
             </xpath>
         </field>
-   </record>
+    </record>
 
     <record id="view_users_simple_form_inherit" model="ir.ui.view">
         <field name="name">base.view.users.simple.form.inherit</field>
@@ -20,6 +21,7 @@
         <field name="arch" type="xml">
             <xpath expr="//field[@name='mobile']" position="after" >
                   <field name="is_doctor" />
+                  <field name="is_supervisor" />
             </xpath>
         </field>
    </record>

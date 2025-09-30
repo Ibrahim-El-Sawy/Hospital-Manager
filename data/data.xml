@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data noupdate="1">
+        <record id="med01" model="the.medicine">
+            <field name="name">Pandol 500mg 24 tab</field>
+            <field name="effective_material">Paracetamol</field>
+            <field name="is_drug">True</field>
+        </record>
+    </data>
+</odoo>

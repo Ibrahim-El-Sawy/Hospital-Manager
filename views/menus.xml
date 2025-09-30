@@ -13,4 +13,10 @@
               sequence="1" />
     <menuitem id="hospital_appointments" name="Appointments" parent="hospital_transactions"
               sequence="0" action="my_hospital.action_appointments" />
+    <menuitem id="hospital_medicine" name="Medicines" parent="hospital_transactions"
+              sequence="0" action="my_hospital.action_medicine" />
+    <menuitem id="hospital_add_appointment" name="Add Appointment" parent="hospital_transactions"
+              sequence="102" action="my_hospital.add_appointment_wizard" />
+
+
 </odoo>

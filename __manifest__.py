@@ -12,10 +12,14 @@
     'depends': ['base', 'mail'],
     'data': [
         'security/ir.model.access.csv',
+        'security/security.xml',
+        'wazird/add_appointment_view.xml',
         'views/templates.xml',
+        'data/data.xml',
         'views/views.xml',
         'views/doctors.xml',
         'views/appointments.xml',
+        'views/medicine.xml',
         'views/menus.xml',
     ],
 }

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="the_medicine_form" model="ir.ui.view">
+        <field name="name">the.medicine.form</field>
+        <field name="model">the.medicine</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                    <group>
+                        <field name="name"/>
+                    </group>
+                    <group>
+                        <field name="effective_material"/>
+                    </group>
+                    <group>
+                        <field name="is_drug"/>
+                    </group>
+                    <group>
+                        <field name="company_name"/>
+                    </group>
+                    <group>
+                        <field name="unit"/>
+                    </group>
+                </group>
+            </form>
+        </field>
+    </record>
+    <record id="the_medicine_tree" model="ir.ui.view">
+        <field name="name">the.medicine.tree</field>
+        <field name="model">the.medicine</field>
+        <field name="arch" type="xml">
+            <tree string="Prescription">
+                <field name="name"/>
+                <field name="effective_material"/>
+                <field name="is_drug"/>
+                <field name="company_name"/>
+                <field name="unit"/>
+
+            </tree>
+        </field>
+    </record>
+
+    <record id="my_hospital.action_medicine" model="ir.actions.act_window">
+        <field name="name">medicine</field>
+        <field name="res_model">the.medicine</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                 add the first medicine ......
+            </p>
+        </field>
+   </record>
+</odoo>
