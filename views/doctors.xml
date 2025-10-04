@@ -1,36 +1,86 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <odoo>
-    <record id="view_users_form_inherit" model="ir.ui.view">
-        <field name="name">res.users.form.inherit</field>
-        <field name="model">res.users</field>
-        <field name="inherit_id" ref="base.view_users_form"/>
+<!--    <record id="view_users_form_inherit" model="ir.ui.view">-->
+<!--        <field name="name">res.users.form.inherit</field>-->
+<!--        <field name="model">res.users</field>-->
+<!--        <field name="inherit_id" ref="base.view_users_form"/>-->
+<!--        <field name="arch" type="xml">-->
+<!--            <xpath expr="//page[@name='access_rights']" position="inside" >-->
+<!--                <group name="my_hospital_group" string="Doctors Settings">-->
+<!--                    <field name="is_doctor" />-->
+<!--                    <field name="is_supervisor" />-->
+<!--                </group>-->
+<!--            </xpath>-->
+<!--        </field>-->
+<!--    </record>-->
+
+<!--    <record id="view_users_simple_form_inherit" model="ir.ui.view">-->
+<!--        <field name="name">base.view.users.simple.form.inherit</field>-->
+<!--        <field name="model">res.users</field>-->
+<!--        <field name="inherit_id" ref="base.view_users_simple_form"/>-->
+<!--        <field name="arch" type="xml">-->
+<!--            <xpath expr="//field[@name='mobile']" position="after" >-->
+<!--                  <field name="is_doctor" />-->
+<!--                  <field name="is_supervisor" />-->
+<!--            </xpath>-->
+<!--        </field>-->
+<!--   </record>-->
+    <!-- قائمة عرض الأطباء (Tree) -->
+    <record id="view_doctor_tree" model="ir.ui.view">
+        <field name="name">hospital.doctor.tree</field>
+        <field name="model">hospital.doctor</field>
         <field name="arch" type="xml">
-            <xpath expr="//page[@name='access_rights']" position="inside" >
-                <group name="my_hospital_group" string="Doctors Settings">
-                    <field name="is_doctor" />
-                    <field name="is_supervisor" />
-                </group>
-            </xpath>
+            <tree>
+                <field name="name"/>
+                <field name="specialization"/>
+                <field name="phone"/>
+                <field name="email"/>
+<!--                <field name="department_id"/>-->
+                <field name="status"/>
+            </tree>
         </field>
     </record>
 
-    <record id="view_users_simple_form_inherit" model="ir.ui.view">
-        <field name="name">base.view.users.simple.form.inherit</field>
-        <field name="model">res.users</field>
-        <field name="inherit_id" ref="base.view_users_simple_form"/>
+    <!-- واجهة الطبيب (Form) -->
+    <record id="view_doctor_form" model="ir.ui.view">
+        <field name="name">hospital.doctor.form</field>
+        <field name="model">hospital.doctor</field>
         <field name="arch" type="xml">
-            <xpath expr="//field[@name='mobile']" position="after" >
-                  <field name="is_doctor" />
-                  <field name="is_supervisor" />
-            </xpath>
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="specialization"/>
+                            <field name="phone"/>
+                            <field name="email"/>
+                            <field name="gender"/>
+                            <field name="date_of_birth"/>
+                            <field name="license_number"/>
+                        </group>
+                        <group>
+                            <field name="experience_years"/>
+                            <field name="join_date"/>
+<!--                            <field name="department_id"/>-->
+                            <field name="salary"/>
+                            <field name="shift"/>
+                            <field name="status"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Address">
+                            <field name="address"/>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
         </field>
-   </record>
+    </record>
 
    <record id="my_hospital.action_doctors" model="ir.actions.act_window">
         <field name="name">doctors</field>
-        <field name="res_model">res.users</field>
+        <field name="res_model">hospital.doctor</field>
         <field name="view_mode">tree,form,kanban</field>
-        <field name="domain">[('is_doctor', '=', True)]</field>
         <field name="help" type="html">
             <p class="o_view_nocontent_smiling_face">
                 Add new doctor..

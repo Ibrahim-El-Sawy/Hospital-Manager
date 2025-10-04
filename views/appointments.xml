@@ -1,14 +1,13 @@
-
+<?xml version="1.0" encoding="UTF-8" ?>
 <odoo>
     <record id="appointment_tree" model="ir.ui.view">
         <field name="name">the.appointments.tree</field>
         <field name="model">the.appointments</field>
         <field name="arch" type="xml">
-            <tree string="Appointments">
+            <tree string="Appointments" class="header_app">
                 <field name="name" />
                 <field name="patient_id" />
                 <field name="doctor_id" />
-                <field name="patient_age" />
                 <field name="app_date" />
                 <field name="notes" />
                 <field name="state"/>
@@ -16,26 +15,30 @@
         </field>
     </record>
 
-    <record id="appointment_form" model="ir.ui.view">
+    <record id="appointment_form" model="ir.ui.view" >
         <field name="name">the.appointments.form</field>
         <field name="model">the.appointments</field>
-        <field name="arch" type="xml">
+        <field name="arch" type="xml" >
             <form>
+                  <button name="%(reports_appointment)d"
+                            string="PRINT"
+                            type="action"
+                            class="btn-danger"
+                           />
                 <header>
+
                     <button name="action_coniform"
                             string="Coniform"
                             type="object"
                             class="oe_highlight"
                            invisible = "state != 'draft'"
                     />
-
                     <button name="action_done"
                             string="Done"
                             type="object"
                             class="oe_highlight"
                             invisible = "state != 'coniform'"
                     />
-
                     <button name="action_cancel"
                             string="Cancel"
                             type="object"
@@ -43,7 +46,7 @@
                     />
                     <field widget="statusbar" statusbar_visible="draft,coniform,done" name="state"/>
                 </header>
-                <sheet>
+                <sheet  >
                     <div class="oe_title">
                         <h1>
                             <field name="name" readonly="1" />
@@ -54,20 +57,23 @@
                             <field name="app_date"/>
                         </group>
                         <group>
-                            <field name="patient_id"/>
-                            <field name="patient_age"/>
+                            <field name="patient_id" readonly="state == 'coniform'" options="{'no_create_edit': True, 'no_create':True}"/>
+                            <field name="patient_age" readonly="1"/>
                         </group>
                     </group>
                     <group>
                         <field name="notes"/>
+                        <field name="val1"/>
+                        <field name="val2"/>
+                        <field name="val3"/>
                     </group>
-                    <group>
-                        <field name="doctor_id"/>
+                 <group>
+                       <field name="doctor_id" readonly="state == 'coniform'"/>
                         <field name="doctor_notes"/>
                     </group>
                     <notebook>
                             <page string="The Prescription">
-                                 <field name = 'prescription_ids' />
+                                 <field name = 'prescription_ids' readonly="state == 'done'"/>
                             </page>
                             <page string="Note of Doctor">
                                 <group>
@@ -86,33 +92,6 @@
         </field>
     </record>
 
-     <record id="the_prescription_form" model="ir.ui.view">
-        <field name="name">the.prescription.form</field>
-        <field name="model">the.prescription</field>
-        <field name="arch" type="xml">
-            <form>
-                <group>
-                    <group>
-                        <field name="name"/>
-                    </group>
-                    <group>
-                        <field name="notes"/>
-                    </group>
-                </group>
-            </form>
-        </field>
-    </record>
-    <record id="the_prescription_tree" model="ir.ui.view">
-        <field name="name">the.prescription.tree</field>
-        <field name="model">the.prescription</field>
-        <field name="arch" type="xml">
-            <tree string="Prescription">
-                <field name="name"/>
-                <field name="notes"/>
-            </tree>
-        </field>
-    </record>
-
     <record id="my_hospital.action_appointments" model="ir.actions.act_window">
         <field name="name">appointments</field>
         <field name="res_model">the.appointments</field>
@@ -123,4 +102,16 @@
             </p>
         </field>
    </record>
+
+
+    <record id="view_appointment_search" model="ir.ui.view">
+        <field name="name">the.appointment.search</field>
+        <field name="model">the.appointments</field>
+        <field name="arch" type="xml">
+            <search string="Search Appointments">
+                <field name="patient_id" />
+            </search>
+        </field>
+    </record>
+
 </odoo>

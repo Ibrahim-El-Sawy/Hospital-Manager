@@ -3,5 +3,7 @@ acc_the_appointments,the.appointments,model_the_appointments,base.group_user,1,1
 acc_the_prescription,the.prescription,model_the_prescription,base.group_user,1,1,1,1
 acc_the_medicine,the.medicine,model_the_medicine,base.group_user,1,1,1,1
 acc_add_appointment,add.appointment,model_add_appointment,base.group_user,1,1,1,1
+acc_hospital_patient,hospital.patient,model_hospital_patient,base.group_user,1,1,1,1
+acc_hospital_doctor,hospital.doctor,model_hospital_doctor,base.group_user,1,1,1,1
 
 

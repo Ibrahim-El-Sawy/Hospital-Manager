@@ -18,5 +18,4 @@
     <menuitem id="hospital_add_appointment" name="Add Appointment" parent="hospital_transactions"
               sequence="102" action="my_hospital.add_appointment_wizard" />
 
-
 </odoo>

@@ -25,6 +25,7 @@
             </form>
         </field>
     </record>
+
     <record id="the_medicine_tree" model="ir.ui.view">
         <field name="name">the.medicine.tree</field>
         <field name="model">the.medicine</field>
@@ -35,7 +36,6 @@
                 <field name="is_drug"/>
                 <field name="company_name"/>
                 <field name="unit"/>
-
             </tree>
         </field>
     </record>

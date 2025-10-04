@@ -13,14 +13,21 @@
     'data': [
         'security/ir.model.access.csv',
         'security/security.xml',
+        'reports/report_appointment.xml',
         'wazird/add_appointment_view.xml',
         'views/templates.xml',
         'data/data.xml',
         'views/views.xml',
+        'views/prescription.xml',
+        'views/patients.xml',
         'views/doctors.xml',
         'views/appointments.xml',
+        'views/search_appointment.xml',
         'views/medicine.xml',
         'views/menus.xml',
     ],
+    'assets':{
+        'web.assets_backend' :['my_hospital/static/src/css/appointment.css']
+    }
 }
 

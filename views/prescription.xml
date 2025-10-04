@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<odoo>
+    <record id="the_prescription_form" model="ir.ui.view">
+        <field name="name">the.prescription.form</field>
+        <field name="model">the.prescription</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                    <group>
+                        <field name="medicine_id"/>
+                    </group>
+                    <group>
+                        <field name="notes"/>
+                    </group>
+                </group>
+            </form>
+        </field>
+    </record>
+
+    <record id="the_prescription_tree" model="ir.ui.view">
+        <field name="name">the.prescription.tree</field>
+        <field name="model">the.prescription</field>
+        <field name="arch" type="xml">
+            <tree string="Prescription">
+                <field name="medicine_id"/>
+                <field name="notes"/>
+            </tree>
+        </field>
+    </record>
+
+</odoo>
